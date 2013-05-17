@@ -8,13 +8,6 @@ gem 'rails', '4.0.0.rc1'
 gem "crunchbase", "~> 0.3.0"
 
 # Use sqlite3 as the database for Active Record
-group :development do
-  gem 'sqlite3'
-end
-
-group :development do
-  gem 'pg'
-end
 
 
 # Use rspec, simplecov, capybara for Test
