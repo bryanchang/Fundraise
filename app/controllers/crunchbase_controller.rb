@@ -59,6 +59,8 @@ class CrunchbaseController < ApplicationController
               "title" => "Facebook",
               "color" => "blue",
               "yAxis" => {
+                "minValue" => 0;
+                "maxValue" => 250;
                 "units" => {
                   "prefix" => "$",
                   "suffix" => "mm"
@@ -72,7 +74,6 @@ class CrunchbaseController < ApplicationController
                   {"title" => "debt round", "value" => fb_data["debt_round"]},
                   {"title" => "d", "value" => fb_data["d"]},
                   {"title" => "unattributed", "value" => fb_data["unattributed"]},
-
                   # @facebook.each do |f|
                   # { "title" => "#{f['round_code']}", "value" => "#{f['raised_amount']/1000000}"}
                   # { "title" => "#{@facebook.map{|f| f['funded_year']}}", "value" => "#{@facebook.map{|f| f['raised_amount']/1000000}}"}
