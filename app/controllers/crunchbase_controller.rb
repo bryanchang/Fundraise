@@ -30,6 +30,8 @@ class CrunchbaseController < ApplicationController
       fb_data[f['round_code']] = f['raised_amount']/1000000
     end
 
+  #    @facebook_rounds = @facebook['round_code']
+
     # fb_data = @facebook.reduce do |h, f|
     #   h[f['round_code']] = f['raised_amount']/1000000
     #   h
@@ -45,13 +47,13 @@ class CrunchbaseController < ApplicationController
       p_data[p['round_code']] = p['raised_amount']/1000000
     end
 
-    # render json: fb_data
+    #render json: fb_data
 
     render json:
 
     {
       "graph" => {
-          "title" => "Billion Dollar Club Funding History",
+          "title" => "FB Billion Dollar Club Funding History",
           "datasequences" => [
             {
               "title" => "Facebook",
@@ -63,7 +65,14 @@ class CrunchbaseController < ApplicationController
                 }
               },
               "datapoints" => [
-                  { "title" => fb_data, "value" => fb_data}
+                  { "title" => "Angel", "value" => fb_data["angel"]},
+                  { "title" => "A", "value" => fb_data["a"]},
+                  { "title" => "B", "value" => fb_data["b"]},
+                  { "title" => "C", "value" => fb_data["c"]},
+                  {"title" => "debt round", "value" => fb_data["debt_round"]},
+                  {"title" => "d", "value" => fb_data["d"]},
+                  {"title" => "unattributed", "value" => fb_data["unattributed"]},
+
                   # @facebook.each do |f|
                   # { "title" => "#{f['round_code']}", "value" => "#{f['raised_amount']/1000000}"}
                   # { "title" => "#{@facebook.map{|f| f['funded_year']}}", "value" => "#{@facebook.map{|f| f['raised_amount']/1000000}}"}
