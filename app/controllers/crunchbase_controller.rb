@@ -1,0 +1,2 @@
+class CrunchbaseController < ApplicationController
+end
