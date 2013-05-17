@@ -59,8 +59,8 @@ class CrunchbaseController < ApplicationController
               "title" => "Facebook",
               "color" => "blue",
               "yAxis" => {
-                "minValue" => 0;
-                "maxValue" => 250;
+                "minValue" => 0,
+                "maxValue" => 250,
                 "units" => {
                   "prefix" => "$",
                   "suffix" => "mm"
