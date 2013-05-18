@@ -2,7 +2,7 @@ require 'crunchbase'
 
 class CrunchController < ApplicationController
 
-  before_filter :fetch_data, except: [:index]
+  before_filter :crunch_data, except: [:index]
 
   def index
     render 'index'
@@ -15,27 +15,17 @@ class CrunchController < ApplicationController
 
   def statusboard
 
-
-    cb = Crunch.new
-    facebook = cb.fetch('facebook').funding_rounds
-
-    fb_data = {}
-    facebook.each do |f|
-      fb_data[f['round_code']] = f['raised_amount']/million
-    end
+    # fb_data = {}
+    # facebook.each do |f|
+    #   fb_data[f['round_code']] = f['raised_amount']/million
+    # end
 
     # fb_data = @facebook.reduce do |h, f|
     #   h[f['round_code']] = f['raised_amount']/million
     #   h
     # end
 
-    data = {
-      :title => "Angel", :value => "Facebook"
-    }
-
-
     chart_data =
-
     {
       :graph => {
           :title => "FB Billion Dollar Club Funding History",
@@ -55,7 +45,7 @@ class CrunchController < ApplicationController
               :xAxis => {
                 :showEveryLabel => true,
               },
-              :datapoints => fb_data
+              :datapoints => @fb_data
 
               # [
                   # { "title" => "Angel", "value" => @fb_data["angel"]},
@@ -81,8 +71,8 @@ class CrunchController < ApplicationController
 
   private
 
-  def fetch_data
-        million = 1000000
+  def crunch_data
+    million = 1000000
     cb = Crunch.new
     facebook = cb.fetch('facebook')
     fb_fundraise = facebook.funding_rounds
