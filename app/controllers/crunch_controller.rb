@@ -15,16 +15,6 @@ class CrunchController < ApplicationController
 
   def statusboard
 
-    # fb_data = {}
-    # facebook.each do |f|
-    #   fb_data[f['round_code']] = f['raised_amount']/million
-    # end
-
-    # fb_data = @facebook.reduce do |h, f|
-    #   h[f['round_code']] = f['raised_amount']/million
-    #   h
-    # end
-
     chart_data =
     {
       :graph => {
@@ -47,18 +37,6 @@ class CrunchController < ApplicationController
               },
               :datapoints => @fb_data
 
-              # [
-                  # { "title" => "Angel", "value" => @fb_data["angel"]},
-                  # { "title" => "A", "value" => @fb_data["a"]},
-                  # { "title" => "B", "value" => @fb_data["b"]},
-                  # { "title" => "C", "value" => @fb_data["c"]},
-                  # { "title" => "Debt Round", "value" => @fb_data["debt_round"]},
-                  # { "title" => "D", "value" => @fb_data["d"]},
-                  # { "title" => "Venture Round", "value" => @fb_data["unattributed"]},
-                  # @facebook.each do |f|
-                  # { "title" => "#{f['round_code']}", "value" => "#{f['raised_amount']/1000000}"}
-                  # { "title" => "#{@facebook.map{|f| f['funded_year']}}", "value" => "#{@facebook.map{|f| f['raised_amount']/1000000}}"}
-              # ]
             }
           ]
 
@@ -84,13 +62,3 @@ class CrunchController < ApplicationController
   end
 
 end
-
-
-    # startups = [
-    #   "facebook",
-    #   "linkedin",
-    #   "twitter",
-    #   "dropbox",
-    #   "pinterest",
-    #   "airbnb",
-    #   "instagrm"]
