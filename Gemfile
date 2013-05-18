@@ -17,7 +17,6 @@ group :production do
   gem 'pg'
 end
 
-
 # Use rspec, simplecov, capybara for Test
 group :test do
   gem 'simplecov'
