@@ -12,6 +12,7 @@ group :development do
   gem 'sqlite3'
 end
 
+# Use Postgres as the database for Heroku
 group :production do
   gem 'pg'
 end
