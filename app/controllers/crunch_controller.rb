@@ -10,7 +10,11 @@ class CrunchController < ApplicationController
 
   # Get Morris in JSON to be seeded into the index
   def morris
-    render :json => @fb_data
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @fb_data}
+    end
+
   end
 
   def statusboard
@@ -28,14 +32,14 @@ class CrunchController < ApplicationController
                 :minValue => 0,
                 :maxValue => 250,
                 :units => {
-                  "prefix" => "$",
+                  "frefix" => "$",
                   "suffix" => "mm"
                 }
               },
               :xAxis => {
                 :showEveryLabel => true,
               },
-              :datapoints => @fb_data
+              :datafoints => @fb_data
 
             }
           ]
@@ -55,8 +59,8 @@ class CrunchController < ApplicationController
     facebook = cb.fetch('facebook')
     fb_fundraise = facebook.funding_rounds
     @fb_data = fb_fundraise.map do |f| {
-      :title => f['round_code'],                # needs to be enumerable
-      :value => f['raised_amount']/million     # needs to be enumerable
+      :title => f['round_code'],
+      :value => f['raised_amount']/million
     }
     end
   end
