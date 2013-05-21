@@ -8,13 +8,19 @@ class CrunchController < ApplicationController
     render 'index'
   end
 
+  def ddd
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @fb_data}
+    end
+  end
+
   # Get Morris in JSON to be seeded into the index
   def morris
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @fb_data}
     end
-
   end
 
   def statusboard

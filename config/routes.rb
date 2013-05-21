@@ -3,6 +3,7 @@ Fundraise::Application.routes.draw do
   root 'crunch#index'
   get '/statusboard' => 'crunch#statusboard'
   get '/morris' => 'crunch#morris'
+  get '/d3' => 'crunch#ddd'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
