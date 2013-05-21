@@ -1,9 +1,12 @@
 <div id='container'>
   <h1> Facebook's VC Fundraise History </h1>
-  <svg id="image">
-  </svg>
+  <div id='d3container'>
+    <button id="button">Animate</button>
+    <svg id="image">
+    </svg>
+  </div>
 </div>
+<!--
+<script src="js/ddd.js.coffee" type="text/javascript"></script> -->
 
-<script src="js/ddd.js.coffee" type="text/javascript"></script>
-
-<%= javascript_include_tag "ddd.js.coffee", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "ddd", "data-turbolinks-track" => true %>

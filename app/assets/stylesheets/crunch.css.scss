@@ -19,3 +19,17 @@ h1{
   width: 800px;
   margin: auto;
 }
+
+#d3container{
+  width: 800px;
+  margin: auto;
+  background-color: #eeeeee;
+  position: relative;
+  overflow: auto;
+}
+
+#button{
+  top: 10px;
+  right: 10px;
+  position: absolute;
+}

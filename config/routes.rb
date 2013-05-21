@@ -1,6 +1,6 @@
 Fundraise::Application.routes.draw do
 
-  root 'crunch#index'
+  root to: 'crunch#index'
   get '/statusboard' => 'crunch#statusboard'
   get '/morris' => 'crunch#morris'
   get '/d3' => 'crunch#ddd'
