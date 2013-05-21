@@ -11,7 +11,7 @@ class CrunchController < ApplicationController
   def ddd
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @fb_data}
+      format.json { render json: @fb_vc_amount}
     end
   end
 
@@ -45,7 +45,7 @@ class CrunchController < ApplicationController
               :xAxis => {
                 :showEveryLabel => true,
               },
-              :datafoints => @fb_data
+              :datapoints => @fb_data
 
             }
           ]
@@ -68,6 +68,9 @@ class CrunchController < ApplicationController
       :title => f['round_code'],
       :value => f['raised_amount']/million
     }
+    end
+    @fb_vc_amount = fb_fundraise.map do |f|
+      f['raised_amount']/million
     end
   end
 
