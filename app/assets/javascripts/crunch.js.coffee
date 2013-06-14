@@ -1,8 +1,9 @@
 $(document).ready ->
   $.ajax(
-    url: '/morris.json'
+    url: 'http://localhost:80'
     method: 'get'
-    dataType: 'json'
+    dataType: 'jsonp'
+    jsonpCallback: 'callback'
     success: (data) ->
       Morris.Bar(
         element: 'chart'
